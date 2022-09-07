@@ -16,11 +16,11 @@ class CompanySeeder extends Seeder
     public function run()
     {
         //
-        Company::create([
+        Company::query()->create([
             'name' => 'DigitalHub',
             'address' => 'Kocani, Macedonia',
         ]);
-        Company::create([
+        Company::query()->create([
             'name' => 'BikeComputer',
             'address' => 'Kocani, Macedonia',
         ]);

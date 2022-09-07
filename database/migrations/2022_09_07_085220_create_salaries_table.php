@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('salaries', function (Blueprint $table) {
             $table->id();
-            $table->string('salary_amount');
-            $table->dateTime('date_payment');
+            $table->unsignedInteger('salary_amount');
+            $table->string('date_payment');
             $table->foreignId('employee_id');
             $table->timestamps();
         });

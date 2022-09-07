@@ -17,20 +17,27 @@ class EmployeeSeeder extends Seeder
     public function run()
     {
         //
-        Employee::create([
-            'name_surname' => 'Jordancho Evtimov',
-            'embg' => '1231231231231',
-            'company_id' => "2"
-        ]);
-        Employee::create([
-            'name_surname' => 'Martin Bojmaliev',
-            'embg' => '4564564564564',
-            'company_id' => "1"
-        ]);
-        Employee::create([
-            'name_surname' => 'Ivan Ivanovski',
-            'embg' => '7897897897897',
-            'company_id' => "2"
+        $company = Company::query()->find(1);
+        $company->employees()->createMany([
+            [
+                'name' => 'Jordancho',
+                'surname' => 'Evtimov',
+                'social_security' => '1231231231231',
+                'address' => "Kocani"
+            ],
+            [
+                'name' => 'Martin',
+                'surname' => 'Bojmaliev',
+                'social_security' => '4564564564564',
+                'address' => "Kocani"
+            ],
+            [
+                'name' => 'Shpresa',
+                'surname' => 'Zendeli',
+                'social_security' => '30303030303030',
+                'address' => "Skopje"
+            ],
+
         ]);
     }
 }
