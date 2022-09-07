@@ -27,7 +27,7 @@ class CompanyController extends Controller
         for($i=0;$i<count($employees);$i++){
             $salaries = Salary::query()->where('employee_id','=',$employees[$i]->id)->get();
             $avg_salaries += $salaries->sum('salary_amount');
-            $counter++;
+            $counter+=count($salaries);
         }
         $avg_salaries = (object) array( "Average Salary " => $avg_salaries/$counter);
 
