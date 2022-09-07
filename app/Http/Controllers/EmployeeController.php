@@ -21,12 +21,17 @@ class EmployeeController extends Controller
         return JsonResource::collection($employees);
     }
 
-    public function show(Employee $employee): array
+    public function show(Employee $employee): AnonymousResourceCollection
     {
         $salaries = Salary::query()->where('employee_id','=',$employee->id)->get();
 
-        $avg_salaries = (object) array( "Average Salary " => $salaries->avg('salary_amount'));
+        return JsonResource::collection($salaries);
+    }
 
-        return [JsonResource::collection($salaries), $avg_salaries];
+    public function employeeAverageSalary(Employee $employee): object
+    {
+        $salaries = Salary::query()->where('employee_id','=',$employee->id)->get();
+
+         return (object) array( "Average Salary " => $salaries->avg('salary_amount'));
     }
 }

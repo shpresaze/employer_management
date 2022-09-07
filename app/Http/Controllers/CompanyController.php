@@ -19,7 +19,14 @@ class CompanyController extends Controller
         return JsonResource::collection($companies);
     }
 
-    public function show(Company $company): array
+    public function show(Company $company): AnonymousResourceCollection
+    {
+        $employees = Employee::query()->where('company_id','=',$company->id)->get();
+
+        return JsonResource::collection($employees);
+    }
+
+    public function companyAverageSalary(Company $company): object
     {
         $counter = 0;
         $avg_salaries = 0;
@@ -29,9 +36,8 @@ class CompanyController extends Controller
             $avg_salaries += $salaries->sum('salary_amount');
             $counter+=count($salaries);
         }
-        $avg_salaries = (object) array( "Average Salary " => $avg_salaries/$counter);
 
-        return [JsonResource::collection($employees), $avg_salaries];
+        return (object) array( "Average Salary " => $avg_salaries/$counter);
     }
 
 }

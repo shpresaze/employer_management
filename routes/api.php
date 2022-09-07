@@ -27,3 +27,7 @@ Route::apiResource("employees", EmployeeController::class)->only('index','show')
 
 Route::apiResource("salaries", SalaryController::class)->only('index');
 
+Route::get('/companies/{id}/average_salary', [CompanyController::class, 'companyAverageSalary']);
+
+Route::get('/employees/{id}/average_salary', [EmployeeController::class, 'employeeAverageSalary']);
+
