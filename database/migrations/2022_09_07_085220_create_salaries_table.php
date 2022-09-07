@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('salary_amount');
             $table->dateTime('date_payment');
-            $table->foreignId("employee_id");
+            $table->foreignId('employee_id');
             $table->timestamps();
         });
     }

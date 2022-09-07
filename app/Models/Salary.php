@@ -10,4 +10,5 @@ class Salary extends Model
     use HasFactory;
 
     protected $fillable = ['salary_amount', 'date_payment'];
+
 }
