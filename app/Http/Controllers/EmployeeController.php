@@ -28,10 +28,10 @@ class EmployeeController extends Controller
         return JsonResource::collection($salaries);
     }
 
-    public function employeeAverageSalary(Employee $employee): object
+    public function employeeAverageSalary(Employee $employee): JsonResource
     {
-        $salaries = Salary::query()->where('employee_id','=',$employee->id)->get();
+        $salaries = Salary::query()->where('employee_id','=',$employee->id);
 
-         return (object) array( "Average Salary " => $salaries->avg('salary_amount'));
+        return JsonResource::make(collect(number_format((float)( $salaries->average('salary_amount') ), 2)));
     }
 }

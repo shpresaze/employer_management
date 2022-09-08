@@ -36,7 +36,6 @@ class CompanyController extends Controller
             $avg_salaries += $salaries->sum('salary_amount');
             $counter+=count($salaries);
         }
-
         return (object) array( "Average Salary " => $avg_salaries/$counter);
     }
 

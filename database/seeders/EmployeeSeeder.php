@@ -22,19 +22,19 @@ class EmployeeSeeder extends Seeder
             [
                 'name' => 'Jordancho',
                 'surname' => 'Evtimov',
-                'social_security' => '1231231231231',
+                'social_security' => '1231231231478',
                 'address' => "Kocani"
             ],
             [
                 'name' => 'Martin',
                 'surname' => 'Bojmaliev',
-                'social_security' => '4564564564564',
+                'social_security' => '45645675364',
                 'address' => "Kocani"
             ],
             [
                 'name' => 'Shpresa',
                 'surname' => 'Zendeli',
-                'social_security' => '30303030303030',
+                'social_security' => '303030303951',
                 'address' => "Skopje"
             ],
 
